@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+
+<html lang="zh-CN"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>今日热榜</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<style data-purpose="custom-utilities">
+    /* Hide scrollbar for horizontal scrolling areas */
+    .scrollbar-hide::-webkit-scrollbar {
+        display: none;
+    }
+    .scrollbar-hide {
+        -ms-overflow-style: none;  /* IE and Edge */
+        scrollbar-width: none;  /* Firefox */
+    }
+    .line-clamp-2 {
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;  
+      overflow: hidden;
+    }
+    .line-clamp-1 {
+      display: -webkit-box;
+      -webkit-line-clamp: 1;
+      -webkit-box-orient: vertical;  
+      overflow: hidden;
+    }
+  </style>
+</head>
+<body class="bg-gray-50 text-gray-800 font-sans antialiased">
+<!-- BEGIN: Navigation Bar -->
+<header class="bg-white border-b border-gray-200 sticky top-0 z-50">
+<div class="max-w-[1600px] mx-auto px-4 md:px-6 h-14 flex items-center justify-between">
+<!-- Left: Logo & Nav Links -->
+<div class="flex items-center gap-6">
+<!-- Logo -->
+<a class="flex items-center gap-2 flex-shrink-0" href="#">
+<div class="w-7 h-7 bg-red-500 text-white rounded font-bold flex items-center justify-center text-lg">R</div>
+<span class="text-[17px] font-bold tracking-wider text-gray-900">今日热榜</span>
+</a>
+<!-- Desktop Nav -->
+<nav class="hidden lg:flex items-center gap-4 text-[15px] font-medium text-gray-600">
+<a class="text-blue-500 hover:text-blue-600" href="#">首页</a>
+<a class="hover:text-gray-900" href="#">晚报</a>
+<a class="hover:text-gray-900" href="#">动态</a>
+<a class="hover:text-gray-900" href="#">追踪</a>
+<a class="hover:text-gray-900" href="#">榜中榜</a>
+<a class="hover:text-gray-900" href="#">热文库</a>
+<a class="hover:text-gray-900" href="#">话题</a>
+<a class="hover:text-gray-900" href="#">日历</a>
+<div class="w-px h-3 bg-gray-300 mx-1"></div>
+<a class="hover:text-gray-900" href="#">综合</a>
+<a class="hover:text-gray-900" href="#">科技</a>
+<a class="hover:text-gray-900" href="#">娱乐</a>
+<a class="hover:text-gray-900" href="#">社区</a>
+<a class="hover:text-gray-900" href="#">购物</a>
+<a class="hover:text-gray-900" href="#">财经</a>
+<a class="hover:text-gray-900" href="#">开发</a>
+<a class="hover:text-gray-900" href="#">简报</a>
+<a class="hover:text-gray-900" href="#">AI</a>
+<button class="flex items-center gap-1 hover:text-gray-900">
+            更多
+            <svg class="w-4 h-4 text-gray-400" fill="none" stroke="currentColor" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M19 9l-7 7-7-7" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+</button>
+</nav>
+</div>
+<!-- Right: Utility Icons -->
+<div class="flex items-center gap-5 text-gray-500 flex-shrink-0">
+<button class="hover:text-gray-900"><svg class="w-5 h-5" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg></button>
+<button class="hover:text-gray-900 relative">
+<svg class="w-5 h-5" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+</button>
+<button class="hover:text-gray-900"><svg class="w-5 h-5" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zM14 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg></button>
+<div class="w-8 h-8 rounded-full bg-gray-200 overflow-hidden cursor-pointer border border-gray-300">
+<!-- Placeholder for User Avatar -->
+<img alt="User Profile" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCfMVAQNXOCGJY4_HDB2lubOEcJV2VSSGh_WZ2E3PnR-sKweo5EKt8CIva0ptn32F8h3gD3Vcb_rqaIe4MoXOgSYky8f6oB467HwBD1GZd3CYChnHzoTvl7-v9koBWDrlzj8L6i_HPnVcTaSGBYb23NGUpRhq-gm55EgTU-CHql5yW1OuBygo7MiNBRsiDL5dYfdI0uVCJLXKnxlFxIkGBX-1HvAXAwYRGXaal3vC-QufnyTs7hfRJgT3AIkFOWk1rfX4Lgz0dxjw"/>
+</div>
+</div>
+</div>
+</header>
+<!-- END: Navigation Bar -->
+<!-- BEGIN: Main Content Area -->
+<main class="max-w-[1600px] mx-auto px-4 md:px-6 py-6">
+<!-- BEGIN: Hot Sites Icon Grid -->
+<section class="mb-8">
+<div class="flex items-center gap-1 mb-4 text-gray-800 font-semibold text-[17px]">
+        热门
+        <svg class="w-4 h-4 text-gray-500" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M9 5l7 7-7 7" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+</div>
+<div class="overflow-x-auto scrollbar-hide">
+<div class="flex items-start gap-4 min-w-max pb-2">
+<!-- Icon Items -->
+<a class="flex flex-col items-center group w-[72px]" href="#">
+<div class="w-14 h-14 rounded-2xl bg-blue-500 flex items-center justify-center text-white text-2xl font-bold shadow-sm transition-transform group-hover:scale-105">知</div>
+<span class="mt-2 text-[13px] text-gray-800 group-hover:text-blue-600">知乎</span>
+<span class="text-[11px] text-gray-400">热榜</span>
+</a>
+<a class="flex flex-col items-center group w-[72px]" href="#">
+<div class="w-14 h-14 rounded-2xl bg-red-100 flex items-center justify-center shadow-sm transition-transform group-hover:scale-105 overflow-hidden">
+<img alt="Weibo" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC8DpE3zTZ6Pd6RqCNOH9SF1QJeH6ye1zRsxAw26-Sv4sw1XFL57t6CQAQCdUcyzPp01F0j1JGmByR6_iqsBw2OPSCB-acTjA7oEjDRtY8vJ3V_-vkoCQsLVgVQdKjx0E-433PK3eZI4a7n-K1V5FOMfZ3YZHGk9s_k6JO24c3rbeuNAVpgQbZcGwYntvwzky5KSYyhiF4bvFx9iyQSHWDCZUqc8tLaY9wxMnI917aqfd3fC5ZBM9U-brmBWloir561nRumnR-xnw"/>
+</div>
+<span class="mt-2 text-[13px] text-gray-800 group-hover:text-red-500">微博</span>
+<span class="text-[11px] text-gray-400">热搜榜</span>
+</a>
+<a class="flex flex-col items-center group w-[72px]" href="#">
+<div class="w-14 h-14 rounded-2xl bg-green-500 flex items-center justify-center text-white shadow-sm transition-transform group-hover:scale-105">
+<svg class="w-8 h-8" fill="currentColor" viewbox="0 0 24 24"><path d="M8 10c-2.2 0-4 1.3-4 3s1.8 3 4 3c.3 0 .7-.1 1-.1l2 1.1-.4-1.8c1.3-.6 2.4-1.8 2.4-3.2 0-1.7-1.8-3-5-3zm9-4c-3.3 0-6 2.2-6 5s2.7 5 6 5c.5 0 1-.1 1.4-.2l2.6 1.4-.5-2.4c1.8-.8 3.5-2.4 3.5-4.3 0-2.8-2.7-5-7-5z"></path></svg>
+</div>
+<span class="mt-2 text-[13px] text-gray-800 group-hover:text-green-600">微信</span>
+<span class="text-[11px] text-gray-400">24h热文榜</span>
+</a>
+<a class="flex flex-col items-center group w-[72px]" href="#">
+<div class="w-14 h-14 rounded-2xl bg-blue-100 flex items-center justify-center shadow-sm transition-transform group-hover:scale-105">
+<img alt="The Paper" class="w-full h-full object-cover rounded-2xl" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBhCk23YPd-tLSH_cVQ9-nThOOBreSNwBO8pvJ9cKFx6q8SDrUeVi2pS8bjo0Qk8V1c_j3mlhiQzS908yZ8ize5OQiTjKJtKwV-ZKxC12DIMLddrZ32tF21CvdjEG4837P8uOr9KVcUUPS-708IbDQVgVXxbxr0SDPsfk2P_DWVGvq4wmYG6xUKTmtSSLaIL1xnLXuHN0CTNEe2ig7OP1mWXDXLgfuY12W49fQdGqLfoeDH07uHUCZ4vU8fkWSruf_xJhAKDahxUQ"/>
+</div>
+<span class="mt-2 text-[13px] text-gray-800 group-hover:text-blue-500">澎湃</span>
+<span class="text-[11px] text-gray-400">热榜</span>
+</a>
+<a class="flex flex-col items-center group w-[72px]" href="#">
+<div class="w-14 h-14 rounded-2xl bg-blue-50 flex items-center justify-center shadow-sm transition-transform group-hover:scale-105">
+<img alt="Baidu" class="w-full h-full object-cover rounded-2xl" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD803CeNE6JncINqupCGGd54hgUHOl0m2o_BIpk3Dt5rrY15HaYyxMwT8lhv0fRjOxcPwasuECYbYJg4IzFI7WUk1CN3SZ-t9dY21vdzJ-4JRExzN1KHTLTC7oq0jGHdffkbwsDDVYV-9LKPiJTr6XNHsEs6sFLNXG6SOO81fFTM4si0EGET04-u-35hCLN0mSPSmN6nlh2SrEsj5mjA8g1LAdsOScgZJUquqpmpYwpl9nbLmQKvUnz2f2wUxSMTLdNad5p3ebfbQ"/>
+</div>
+<span class="mt-2 text-[13px] text-gray-800 group-hover:text-blue-600">百度</span>
+<span class="text-[11px] text-gray-400">实时热点</span>
+</a>
+<a class="flex flex-col items-center group w-[72px]" href="#">
+<div class="w-14 h-14 rounded-2xl bg-pink-100 flex items-center justify-center shadow-sm transition-transform group-hover:scale-105">
+<img alt="Bilibili" class="w-full h-full object-cover rounded-2xl" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAJC22tLqavRtCW-SvZBvjHtwqvqkmOJZNw1N0ikISojlqjZ1npAeRrBITnE5o6zDQDQD7Jc7ODuLWGQMX_7ZYoryVbDDHPEqjeNXzb_ra1Zb1_EEp5nWdtY67gKIpG9tjcrGLkeB4Y-EOdTqINimlC8tHdDAqKyyoYKJ4xGuql6uqntuBqGdz-n35oC-FkcRqeb6pS_kPT1H67DDsDdckSskauGQ6Va06rM-d7CovBTm4UHiC4QbbSRshrVsgM4xzy2F4J-j3fYQ"/>
+</div>
+<span class="mt-2 text-[13px] text-gray-800 group-hover:text-pink-500">哔哩哔哩</span>
+<span class="text-[11px] text-gray-400">全站日榜</span>
+</a>
+<a class="flex flex-col items-center group w-[72px]" href="#">
+<div class="w-14 h-14 rounded-2xl bg-blue-500 flex items-center justify-center shadow-sm transition-transform group-hover:scale-105">
+<img alt="36Kr" class="w-full h-full object-cover rounded-2xl" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBMsvndzuChNNWGxRWLZIXJKjWT7KkgrjiI4ZfPKyMwmQZAhTE6hJtiDUFUUgdV6ARKY6oKBmNY9g6D8q-AcQkF65cp5RysuoPJFEAFoAms_OoZ0NLSKmeE5mO7c3H1In7BtOEopfPiO7vpq8693sWy4q9Vl7AaNW3eiLiZR_ywPyS8-Bk7SXXkL-hbRcSc5cG1HpZxN2R6NI0tn2EJrA1tTll0dP9btTFZyaT8seBST2HuumN_0cfCJmeRFNCJj_yVMZFfy9E9PQ"/>
+</div>
+<span class="mt-2 text-[13px] text-gray-800 group-hover:text-blue-600">36氪</span>
+<span class="text-[11px] text-gray-400">24小时热榜</span>
+</a>
+<a class="flex flex-col items-center group w-[72px]" href="#">
+<div class="w-14 h-14 rounded-2xl bg-blue-400 flex items-center justify-center text-white text-xl font-bold shadow-sm transition-transform group-hover:scale-105">知</div>
+<span class="mt-2 text-[13px] text-gray-800 group-hover:text-blue-500">知乎日报</span>
+<span class="text-[11px] text-gray-400">Today</span>
+</a>
+<a class="flex flex-col items-center group w-[72px]" href="#">
+<div class="w-14 h-14 rounded-2xl bg-black flex items-center justify-center shadow-sm transition-transform group-hover:scale-105">
+<img alt="Douyin" class="w-full h-full object-cover rounded-2xl" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAtgdf3SEHcmJvM9sFbfRbzB0C4NQvf1QlNKF9Z8C-PZVAoHx3Z6TkDlFgtyYLL95aeOfQLcEqRdgSqv-zYzb78Nh4wmXxWKRsWUlDuICIu2pF4trsHG8X7nYG0WImG96gorhmNe2vQQKI-LjfiFop017mQ2Yr3t6qmic5HYut-XaEypUDBZr1sXxoImsCTPlzgFIhE1andFg_SfPGKVrF_E2vpseobPzB5gcPOusFX2dFrjk6eiXRfDrFZ3H5mmkcBHnV39LV0Rw"/>
+</div>
+<span class="mt-2 text-[13px] text-gray-800 group-hover:text-gray-900">抖音</span>
+<span class="text-[11px] text-gray-400">总榜</span>
+</a>
+<a class="flex flex-col items-center group w-[72px]" href="#">
+<div class="w-14 h-14 rounded-2xl bg-red-50 flex items-center justify-center shadow-sm transition-transform group-hover:scale-105">
+<img alt="Sspai" class="w-full h-full object-cover rounded-2xl" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAdmdvBe1OiUy6nYy0YJd_3z_9ggwuVN-p84TeryT2Zru21VUD0Tl17oDfgTabRktQRO6UKpzxqxBZHxMF2mkDCjinMifZp0LrkTScw1oAMg1BityQNLaeZ2QaofvYBJqPs7Qa2T94zi4PzjibBb5u4yqBdkkO0z4u3SlggVH7q-c1IairgBBCI9ENDK86Tt9j48vYwkAOjOz7B9VQE98otgno1U9622PGRJp5fGQ68pmROtaiYJD29f_8RZV6slW_na2pPveqeCg"/>
+</div>
+<span class="mt-2 text-[13px] text-gray-800 group-hover:text-red-500">少数派</span>
+<span class="text-[11px] text-gray-400">热门文章</span>
+</a>
+<a class="flex flex-col items-center group w-[72px]" href="#">
+<div class="w-14 h-14 rounded-2xl bg-red-600 flex items-center justify-center text-white text-xl font-bold shadow-sm transition-transform group-hover:scale-105">头条</div>
+<span class="mt-2 text-[13px] text-gray-800 group-hover:text-red-600">今日头条</span>
+<span class="text-[11px] text-gray-400">头条热榜</span>
+</a>
+<a class="flex flex-col items-center group w-[72px]" href="#">
+<div class="w-14 h-14 rounded-2xl bg-purple-100 flex items-center justify-center shadow-sm transition-transform group-hover:scale-105">
+<img alt="52pojie" class="w-full h-full object-cover rounded-2xl" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC222RktLr45T_Nz84NNoUgIxUYuQSlwiG0kxy4e4KOe_2cJxj3sp1XnRdtoM4qbWyTaYI3vhF2qthIi4A5iKqTlDqLF8ioJbsNG8PGEIIBuTI89bragfjqO5VC5MlgrvHnJvobplr8lwUWSXimeaopg0wclgFsx5_LxJ3_e7WXf-q6MKyzFQl88c04q1DLcuBGbqb9fGKwyCncmEoRUS20JkCh-I2ePcbiWIxoHR_tsBwSDxD3dt_Z3dozR4_UG5fMaMmwBS7d4Q"/>
+</div>
+<span class="mt-2 text-[13px] text-gray-800 group-hover:text-purple-600">吾爱破解</span>
+<span class="text-[11px] text-gray-400">今日热帖</span>
+</a>
+<a class="flex flex-col items-center group w-[72px]" href="#">
+<div class="w-14 h-14 rounded-2xl bg-green-50 flex items-center justify-center shadow-sm transition-transform group-hover:scale-105">
+<img alt="Douban" class="w-full h-full object-cover rounded-2xl" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBxtUevuKHEhfiJGQVZp0W0wfnCks22cGnWUpmRsoDiSkw8sCsXI6ZpRpnAzYM9sPGCSJ_fIQYrmAUzNkFACiH8Tom0ge3MBYEfStBvlcVHGSnHDr4yda1xr05Nyuld8ZM7Aqjv0K2e9zx-dQ-UUiGwQDgPNlcfJoJ4JhHzE_tUgR3C1kfrSH99VvhibrA3UcTn-wf93UdW8dzocs7a2VekYzx-CR5FudL07e6mQKkWu5PTOig_5bCCVP2KcCv2YajRoKPr6YazCQ"/>
+</div>
+<span class="mt-2 text-[13px] text-gray-800 group-hover:text-green-600">豆瓣电影</span>
+<span class="text-[11px] text-gray-400">豆瓣新片榜</span>
+</a>
+<a class="flex flex-col items-center group w-[72px]" href="#">
+<div class="w-14 h-14 rounded-2xl bg-orange-50 flex items-center justify-center shadow-sm transition-transform group-hover:scale-105">
+<img alt="Huxiu" class="w-full h-full object-cover rounded-2xl" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDYj_q-pBlLsAnuCgjnwL6up0cr8Inm7qaCjOuuMF-UriP_wxd_AC_6c-w8Yk5jCRMX411sr7R_4hCZOCBUddBn1_v4jS9sZDNjJUKW13OIeGcYsRjE_9qdDVzWZK-VAXdT3HSPIPArjV5UFf8dPqgTQ_UxB5v3Zob1OycPqPpmCUphZhOeQOied3oA_aVIE9U1e9_ws940W1WBfvK9IBYd2OGUQa3J5B4QIf1lGOZOMSN0NNFgpgX4OYhFqCOKs8LzPnOL4xIEvA"/>
+</div>
+<span class="mt-2 text-[13px] text-gray-800 group-hover:text-orange-500">虎嗅网</span>
+<span class="text-[11px] text-gray-400">热文</span>
+</a>
+<a class="flex flex-col items-center group w-[72px]" href="#">
+<div class="w-14 h-14 rounded-2xl bg-gray-100 flex items-center justify-center shadow-sm transition-transform group-hover:scale-105">
+<img alt="Lishi" class="w-full h-full object-cover rounded-2xl" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBf54D6MrcP9OhBnVH4XCrxbXXX50jzvZfowunv8RJjnnE0PNTFI5QBCZ14JUwXsKAolB6Jo51EyGkgPCOFQSA19e4EItAonLvoLGY7RqmC-YQ05OyF18UXxazmNvI78nJn8ZC5TV1w24_unO_h5Zu7e4YNtjh4abCidBflOV6MmGIQKBJ0agzMWpgDD2r9OKR7yCN26RUYB-eLwYNFrqIqPT0BM9pmXkvGJwxjq2SquPXcHFfUqO-lq1nMaDHvlT4cnFDp3z_Mjw"/>
+</div>
+<span class="mt-2 text-[13px] text-gray-800 group-hover:text-gray-600">历史上...</span>
+<span class="text-[11px] text-gray-400">Today</span>
+</a>
+<a class="flex flex-col items-center group w-[72px]" href="#">
+<div class="w-14 h-14 rounded-2xl bg-blue-500 flex items-center justify-center text-white text-xl font-bold shadow-sm transition-transform group-hover:scale-105">贴</div>
+<span class="mt-2 text-[13px] text-gray-800 group-hover:text-blue-600">百度贴吧</span>
+<span class="text-[11px] text-gray-400">热议榜</span>
+</a>
+</div>
+</div>
+</section>
+<!-- END: Hot Sites Icon Grid -->
+<!-- BEGIN: Banners Section -->
+<section class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-4 mb-8">
+<a class="block overflow-hidden rounded-xl h-[100px] shadow-sm hover:shadow-md transition-shadow" href="#">
+<img alt="Banner 1" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCTIJswuVETbQTav37DG1_lOJD1eI-yokAoRn83IxcGuauCrGfsI1qgwW2xn4UVajApTVJYW3o13aYG5zjPM2MakooS_HCxx17rPfhWIDn-4cS49QUFvUiUbzBqKax25oOelrx9zPaXoY6GyKV63PxBUkt0cw_iMkI514AuR7gGkuuzOM5Kf8BBX-AVqFRNCt1RSqdcoQ5zUCchJWTb91QJZgAv-1GDKDVNGrNpszFUfag4j1zypHs_HzbdVLZK9UqYrTrq6xA_9Q"/>
+</a>
+<a class="block overflow-hidden rounded-xl h-[100px] shadow-sm hover:shadow-md transition-shadow" href="#">
+<img alt="Banner 2" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCoWm1d0Akbfmtqg6w3PhpoV7T3ILVcLIAeX2-k7vCsUdjwRfwXoUlehE8UHiLYn82n-Z6tlnL7zv5foIsSofBfk6vbd3ZDoLerw2zwkQOucfHhz1-hMiVhUoLpzfq4bSvv8jC1EqJ6k9QkveYyUwnx4_Qm0aY3TUkkqsQ1YV5knn52sglI5P_OqNjKBPI-La-lKZ6aSD4z8FIUDch2eMApupMAEH2mS2TqdyrV0jRaAl9_svnq5TKzemzXHJjeXPc1mhWHuilkrQ"/>
+</a>
+<a class="block overflow-hidden rounded-xl h-[100px] shadow-sm hover:shadow-md transition-shadow" href="#">
+<img alt="Banner 3" class="w-full h-full object-cover border border-yellow-200" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBuKlwrqZkU95dk-i4B7rTrhGra7fq3JCoXBA3KB99yFlymYgJaRfon0TggZtRO9H3HZmh0VZsquqMy8UdWXi2q05nJJaLsEZM2mx9hCPNO2ionUJrOoK9sczIKK1u7jCi87_2JpN2VxddR_8AwA5hpbvcHjolqVn3GoWPF5reLilzaMWQw1ec3ZcQUaQgeposjS0lJ8xOE0B07vdNYuXV4JuA1ijcTOGh0Wuyrx1RKW60QH25oeo8nciCst4LRv7jIp39y_IGbkQ"/>
+</a>
+<a class="block overflow-hidden rounded-xl h-[100px] shadow-sm hover:shadow-md transition-shadow" href="#">
+<img alt="Banner 4" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBlTjC74058_u7P4gZ2f8lkvXvfeytGOEs6E21IEnaRQEUOFaZWMIMltEV-sjEAPJB03cO7opGV6klbLVyevQOpTSmgAgY4SyFZkagk6jsPeYw4a-wjm-_zMdSfvg2roFJj0iDaEQFSX3mC1yTbE7SlyAQnvr6mBCZ9L_6SK6H1Vr1iq18wcjj-kPDG5j4ToLNa-_8DS8wM8p5R5cVJJp0EtZLAR-N4X9soEMXB-GRAF_3w_mcFAfC0ZVj21LUlzsjVwvkYGFJrLg"/>
+</a>
+<a class="block overflow-hidden rounded-xl h-[100px] shadow-sm hover:shadow-md transition-shadow" href="#">
+<img alt="Banner 5" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAEhXDB5GEsJa2iWm-AFbMQ-I0XxowuXmprqUSIvJLIIAXmx0DBCq-gGEzXgSLaPdTyMKQciTRpPBV5-5UkwYJAI5XIlJLYgjpJb7e6q_TG3qo548Z6o8nLlkaUbmzAkTkz9N7TrI7tGVSoGl_5DAmxjXwsgKLQ5MuoSMIF2abAD2l_f91rR9GAs_7MORjusoRkBcCplb0W_H6gWk_JBbI_cpAbStu7hB20WifPVX5siKnFSw7c0mC7E4yw_Fi3qg2Y-ppGSOxhVQ"/>
+</a>
+</section>
+<!-- END: Banners Section -->
+<!-- BEGIN: Content Grid Section -->
+<section>
+<div class="mb-4 text-gray-800 font-semibold text-[17px]">推荐</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+<!-- Column 1: Taobao Tmall -->
+<div class="bg-white rounded-xl shadow-sm border border-gray-100 p-4 flex flex-col h-[500px]">
+<div class="flex items-center justify-between mb-3 border-b border-gray-100 pb-2">
+<div class="flex items-center gap-2">
+<div class="w-5 h-5 bg-orange-500 rounded text-white flex items-center justify-center text-xs font-bold">淘</div>
+<h3 class="font-bold text-[15px]">淘宝·天猫</h3>
+</div>
+<span class="text-[13px] text-gray-500">热销总榜</span>
+</div>
+<div class="flex-1 overflow-y-auto pr-1">
+<ul class="space-y-4">
+<li class="flex gap-3 items-start group cursor-pointer">
+<span class="text-orange-500 font-bold w-4 text-center">1</span>
+<div class="flex-1">
+<p class="text-[14px] text-gray-800 group-hover:text-blue-600 line-clamp-2 leading-snug">240mm10片*4 原价¥39.1 券后¥16.1</p>
+</div>
+</li>
+<li class="flex gap-3 items-start group cursor-pointer">
+<span class="text-orange-400 font-bold w-4 text-center">2</span>
+<div class="flex-1">
+<p class="text-[14px] text-gray-800 group-hover:text-blue-600 line-clamp-2 leading-snug">芬腾！7A级男款眼短袜+女袜5双 原价¥29.9 券后¥12.9</p>
+<div class="mt-1 flex items-center justify-end"><span class="text-[12px] text-gray-400 bg-gray-50 px-1.5 py-0.5 rounded">热销2500件</span></div>
+</div>
+</li>
+<li class="flex gap-3 items-start group cursor-pointer">
+<span class="text-yellow-500 font-bold w-4 text-center">3</span>
+<div class="flex-1">
+<p class="text-[14px] text-gray-800 group-hover:text-blue-600 line-clamp-2 leading-snug">唇动草莓味巧克力派230g 原价¥12.9 券后¥9.9</p>
+<div class="mt-1 flex items-center justify-end"><span class="text-[12px] text-gray-400 bg-gray-50 px-1.5 py-0.5 rounded">热销2000件</span></div>
+</div>
+</li>
+<li class="flex gap-3 items-start group cursor-pointer">
+<span class="text-gray-400 font-bold w-4 text-center">4</span>
+<div class="flex-1">
+<p class="text-[14px] text-gray-800 group-hover:text-blue-600 line-clamp-2 leading-snug">旺旺碎碎冰混合口味*24支 原价¥15.4 券后¥14.4</p>
+<div class="mt-1 flex items-center justify-end"><span class="text-[12px] text-gray-400 bg-gray-50 px-1.5 py-0.5 rounded">热销2000件</span></div>
+</div>
+</li>
+<li class="flex gap-3 items-start group cursor-pointer">
+<span class="text-gray-400 font-bold w-4 text-center">5</span>
+<div class="flex-1">
+<p class="text-[14px] text-gray-800 group-hover:text-blue-600 line-clamp-2 leading-snug">9.8元左右【觅食记】坚果饼干1箱45包 原价¥9.8 券后¥9.8</p>
+<div class="mt-1 flex items-center justify-end"><span class="text-[12px] text-gray-400 bg-gray-50 px-1.5 py-0.5 rounded">热销2000件</span></div>
+</div>
+</li>
+<li class="flex gap-3 items-start group cursor-pointer">
+<span class="text-gray-400 font-bold w-4 text-center">6</span>
+<div class="flex-1">
+<p class="text-[14px] text-gray-800 group-hover:text-blue-600 line-clamp-2 leading-snug">味滋源现做冰皮绿豆饼330g*2盒 原价¥12 券后¥9</p>
+<div class="mt-1 flex items-center justify-end"><span class="text-[12px] text-gray-400 bg-gray-50 px-1.5 py-0.5 rounded">热销1500件</span></div>
+</div>
+</li>
+</ul>
+</div>
+<div class="mt-3 pt-2 border-t border-gray-100 flex items-center justify-between text-[12px] text-gray-400">
+<span>4分钟前</span>
+<button class="hover:text-gray-600"><svg class="w-5 h-5" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M5 12h.01M12 12h.01M19 12h.01M6 12a1 1 0 11-2 0 1 1 0 012 0zm7 0a1 1 0 11-2 0 1 1 0 012 0zm7 0a1 1 0 11-2 0 1 1 0 012 0z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg></button>
+</div>
+</div>
+<!-- Column 2: Taobao Tmall (Daily Deals) -->
+<div class="bg-white rounded-xl shadow-sm border border-gray-100 p-4 flex flex-col h-[500px]">
+<div class="flex items-center justify-between mb-3 border-b border-gray-100 pb-2">
+<div class="flex items-center gap-2">
+<div class="w-5 h-5 bg-orange-500 rounded text-white flex items-center justify-center text-xs font-bold">淘</div>
+<h3 class="font-bold text-[15px]">淘宝·天猫</h3>
+</div>
+<span class="text-[13px] text-gray-500">每日爆款清单</span>
+</div>
+<div class="flex-1 overflow-y-auto pr-1">
+<ul class="space-y-4">
+<li class="flex gap-2 items-start group cursor-pointer">
+<div class="mt-1.5 w-1 h-1 bg-gray-400 rounded-full flex-shrink-0"></div>
+<div class="flex-1">
+<p class="text-[14px] text-gray-800 group-hover:text-blue-600 line-clamp-2 leading-snug">冰丝睡裤男夏薄款宽松大码五分裤 原价¥27 券后¥13</p>
+</div>
+</li>
+<li class="flex gap-2 items-start group cursor-pointer">
+<div class="mt-1.5 w-1 h-1 bg-gray-400 rounded-full flex-shrink-0"></div>
+<div class="flex-1">
+<p class="text-[14px] text-gray-800 group-hover:text-blue-600 line-clamp-2 leading-snug">芬腾！7A级男款眼短袜+女袜5双 原价¥29.9 券后¥12.9</p>
+<div class="mt-1 flex items-center justify-end"><span class="text-[12px] text-gray-400 bg-gray-50 px-1.5 py-0.5 rounded">热销2500件</span></div>
+</div>
+</li>
+<li class="flex gap-2 items-start group cursor-pointer">
+<div class="mt-1.5 w-1 h-1 bg-gray-400 rounded-full flex-shrink-0"></div>
+<div class="flex-1">
+<p class="text-[14px] text-gray-800 group-hover:text-blue-600 line-clamp-2 leading-snug">臻选澳宝滋润薰衣草沐浴露750g*3瓶 原价¥34.9 券后¥31.9</p>
+<div class="mt-1 flex items-center justify-end"><span class="text-[12px] text-gray-400 bg-gray-50 px-1.5 py-0.5 rounded text-right max-w-full truncate">热销400件(近...</span></div>
+</div>
+</li>
+<li class="flex gap-2 items-start group cursor-pointer">
+<div class="mt-1.5 w-1 h-1 bg-gray-400 rounded-full flex-shrink-0"></div>
+<div class="flex-1">
+<p class="text-[14px] text-gray-800 group-hover:text-blue-600 line-clamp-2 leading-snug">巨好吃！有你一面拌面汤面8袋组合 原价¥67.96 券后¥19.96</p>
+<div class="mt-1 flex items-center justify-end"><span class="text-[12px] text-gray-400 bg-gray-50 px-1.5 py-0.5 rounded text-right max-w-full truncate">热销100件(近...</span></div>
+</div>
+</li>
+<li class="flex gap-2 items-start group cursor-pointer">
+<div class="mt-1.5 w-1 h-1 bg-gray-400 rounded-full flex-shrink-0"></div>
+<div class="flex-1">
+<p class="text-[14px] text-gray-800 group-hover:text-blue-600 line-clamp-2 leading-snug">白象经典桶装方便面混合12桶4种口味 原价¥26.9 券后¥26.9</p>
+<div class="mt-1 flex items-center justify-end"><span class="text-[12px] text-gray-400 bg-gray-50 px-1.5 py-0.5 rounded text-right max-w-full truncate">热销600件(近...</span></div>
+</div>
+</li>
+<li class="flex gap-2 items-start group cursor-pointer">
+<div class="mt-1.5 w-1 h-1 bg-gray-400 rounded-full flex-shrink-0"></div>
+<div class="flex-1">
+<p class="text-[14px] text-gray-800 group-hover:text-blue-600 line-clamp-2 leading-snug">【淘工厂天降1元】500g*1袋蓝漂洗衣液 原价¥4.5 券后¥3.5</p>
+<div class="mt-1 flex items-center justify-end"><span class="text-[12px] text-gray-400 bg-gray-50 px-1.5 py-0.5 rounded text-right max-w-full truncate">热销600件(近...</span></div>
+</div>
+</li>
+</ul>
+</div>
+<div class="mt-3 pt-2 border-t border-gray-100 flex items-center justify-between text-[12px] text-gray-400">
+<span>4分钟前</span>
+<button class="hover:text-gray-600"><svg class="w-5 h-5" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M5 12h.01M12 12h.01M19 12h.01M6 12a1 1 0 11-2 0 1 1 0 012 0zm7 0a1 1 0 11-2 0 1 1 0 012 0zm7 0a1 1 0 11-2 0 1 1 0 012 0z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg></button>
+</div>
+</div>
+<!-- Column 3: JD -->
+<div class="bg-white rounded-xl shadow-sm border border-gray-100 p-4 flex flex-col h-[500px]">
+<div class="flex items-center justify-between mb-3 border-b border-gray-100 pb-2">
+<div class="flex items-center gap-2">
+<div class="w-5 h-5 bg-red-600 rounded text-white flex items-center justify-center text-xs font-bold">京</div>
+<h3 class="font-bold text-[15px]">京东</h3>
+</div>
+<span class="text-[13px] text-gray-500">热销总榜</span>
+</div>
+<div class="flex-1 overflow-y-auto pr-1">
+<ul class="space-y-4">
+<li class="flex gap-3 items-start group cursor-pointer">
+<span class="text-red-500 font-bold w-4 text-center">1</span>
+<div class="flex-1">
+<p class="text-[14px] text-gray-800 group-hover:text-blue-600 line-clamp-2 leading-snug">谱硕汽车应急启动电源充气泵一体机数显车载电脑搭电宝强启打火神器各类轮胎电动打气泵带户外照明灯 顶配/黑【12V不限排 | 2000A电流】智能夹+收纳袋 原价¥169 券后¥149</p>
+<div class="mt-1 flex items-center justify-end"><span class="text-[12px] text-gray-500 bg-gray-50 px-1.5 py-0.5 rounded border border-gray-200">谱硕 |</span></div>
+</div>
+</li>
+<li class="flex gap-3 items-start group cursor-pointer">
+<span class="text-orange-400 font-bold w-4 text-center">2</span>
+<div class="flex-1">
+<p class="text-[14px] text-blue-500 group-hover:underline line-clamp-2 leading-snug">味滋源焦糖饼干曲奇饼500g/盒 原价¥42.9 券后¥12.9</p>
+<div class="mt-1 flex items-center justify-end"><span class="text-[12px] text-blue-500">味滋源</span></div>
+</div>
+</li>
+<li class="flex gap-3 items-start group cursor-pointer">
+<span class="text-yellow-500 font-bold w-4 text-center">3</span>
+<div class="flex-1">
+<p class="text-[14px] text-gray-800 group-hover:text-blue-600 line-clamp-2 leading-snug">鑫卡威25款丰田铂智3X车载手机支架专用BZ3X屏幕导航架汽车内饰改装用品 重力夹紧款【可单手取放】 25款丰田铂智BZ3X（14.6英寸） 原价¥45 券后¥30</p>
+<div class="mt-1 flex items-center justify-end"><span class="text-[12px] text-gray-500 bg-gray-50 px-1.5 py-0.5 rounded border border-gray-200">鑫卡威</span></div>
+</div>
+</li>
+<li class="flex gap-3 items-start group cursor-pointer">
+<span class="text-gray-400 font-bold w-4 text-center">4</span>
+<div class="flex-1">
+<p class="text-[14px] text-gray-800 group-hover:text-blue-600 line-clamp-2 leading-snug">文枝敦煌汝窑功夫茶具套装家用办公室高档半自动冲茶器复古开片茶杯整套防烫茶壶 文枝 | 敦煌飞天-半自动-六杯... 原价¥238 券后¥188</p>
+<div class="mt-1 flex items-center justify-end"><span class="text-[12px] text-gray-500 bg-gray-50 px-1.5 py-0.5 rounded border border-gray-200">文枝</span></div>
+</div>
+</li>
+</ul>
+</div>
+<div class="mt-3 pt-2 border-t border-gray-100 flex items-center justify-between text-[12px] text-gray-400">
+<span>5分钟前</span>
+<button class="hover:text-gray-600"><svg class="w-5 h-5" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M5 12h.01M12 12h.01M19 12h.01M6 12a1 1 0 11-2 0 1 1 0 012 0zm7 0a1 1 0 11-2 0 1 1 0 012 0zm7 0a1 1 0 11-2 0 1 1 0 012 0z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg></button>
+</div>
+</div>
+<!-- Column 4: Real-time Top List -->
+<div class="bg-white rounded-xl shadow-sm border border-gray-100 p-4 flex flex-col h-[500px]">
+<div class="flex items-center justify-between mb-3 border-b border-gray-100 pb-2">
+<div class="flex items-center gap-2">
+<div class="w-5 h-5 bg-red-500 rounded text-white flex items-center justify-center text-xs font-bold">R</div>
+<h3 class="font-bold text-[15px]">实时榜中榜</h3>
+</div>
+<div class="flex items-center text-[13px] gap-2">
+<span class="text-gray-800 font-medium cursor-pointer">日榜</span>
+<span class="text-gray-400 cursor-pointer hover:text-gray-600">周榜</span>
+<span class="text-gray-400 cursor-pointer hover:text-gray-600">月榜</span>
+</div>
+</div>
+<div class="flex-1 overflow-y-auto pr-1">
+<ul class="space-y-4">
+<li class="flex gap-3 items-start group cursor-pointer border-b border-dashed border-gray-200 pb-3 last:border-0">
+<div class="flex-1">
+<p class="text-[15px] font-medium text-gray-800 group-hover:text-blue-600 line-clamp-2 leading-snug mb-1">豆包付费版本曝光，每月 68-500 元三档，你愿意付费吗？国产 AI 推付费服务是一种趋势吗？</p>
+<span class="text-[12px] text-gray-400">知乎 · 1007万热度</span>
+</div>
+<span class="text-gray-300 font-bold text-lg">1</span>
+</li>
+<li class="flex gap-3 items-start group cursor-pointer border-b border-dashed border-gray-200 pb-3 last:border-0">
+<div class="flex-1">
+<p class="text-[15px] font-medium text-gray-800 group-hover:text-blue-600 line-clamp-2 leading-snug mb-1">为何 Windows 自带的文件搜索这么慢，而 Everything 的这么快？</p>
+<span class="text-[12px] text-gray-400">知乎 · 963万热度</span>
+</div>
+<span class="text-gray-300 font-bold text-lg">2</span>
+</li>
+<li class="flex gap-3 items-start group cursor-pointer border-b border-dashed border-gray-200 pb-3 last:border-0">
+<div class="flex-1">
+<p class="text-[15px] font-medium text-gray-800 group-hover:text-blue-600 line-clamp-2 leading-snug mb-1">如何评价鸿蒙智行某车型副驾零重力座椅模式疑似存在安全隐患，某博主测试折叠期间差点压伤小孩？你怎么看？</p>
+<span class="text-[12px] text-gray-400">知乎 · 957万热度</span>
+</div>
+<span class="text-gray-300 font-bold text-lg">3</span>
+</li>
+</ul>
+</div>
+<div class="mt-3 pt-2 border-t border-gray-100 flex items-center justify-between text-[12px] text-gray-400">
+<span>今日热榜</span>
+<button class="hover:text-gray-600"><svg class="w-5 h-5" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M5 12h.01M12 12h.01M19 12h.01M6 12a1 1 0 11-2 0 1 1 0 012 0zm7 0a1 1 0 11-2 0 1 1 0 012 0zm7 0a1 1 0 11-2 0 1 1 0 012 0z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg></button>
+</div>
+</div>
+</div>
+</section>
+<!-- END: Content Grid Section -->
+</main>
+<!-- END: Main Content Area -->
+<!-- Floating Action Button -->
+<div class="fixed right-6 bottom-6 flex flex-col gap-2 z-50">
+<button class="w-10 h-10 bg-red-100 text-red-500 rounded-full flex items-center justify-center shadow-md hover:bg-red-200 transition-colors">
+<svg class="w-5 h-5" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+</button>
+</div>
+</body></html>
