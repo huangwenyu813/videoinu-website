@@ -1,3 +1,5 @@
+import { mountChatWidget } from "./assistant/chat-widget.js";
+
 const stats = [
   {
     value: "100+",
@@ -199,6 +201,7 @@ function renderSocialLink(item) {
 }
 
 const app = document.getElementById("app");
+document.body.dataset.currentPage = "homepage";
 
 app.innerHTML = `
   <div class="cursor-glow" aria-hidden="true"></div>
@@ -512,3 +515,7 @@ if (cursorGlow && supportsDesktopPointer) {
 } else {
   cursorGlow?.remove();
 }
+
+mountChatWidget().catch(() => {
+  console.warn("Videoinu assistant widget failed to mount.");
+});

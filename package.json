@@ -1,5 +1,9 @@
 {
+  "scripts": {
+    "dev": "wrangler pages dev . --compatibility-date=2026-05-16 --port 4173"
+  },
   "devDependencies": {
-    "shadcn": "^4.6.0"
+    "shadcn": "^4.6.0",
+    "wrangler": "^4.92.0"
   }
 }

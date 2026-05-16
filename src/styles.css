@@ -1445,3 +1445,305 @@ button,
     transition-duration: 0.01ms !important;
   }
 }
+
+.assistant-shell {
+  position: fixed;
+  right: clamp(1rem, 2vw, 2rem);
+  bottom: clamp(1rem, 2vw, 2rem);
+  z-index: 80;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 0.9rem;
+}
+
+.assistant-trigger,
+.assistant-close,
+.assistant-submit,
+.assistant-starter,
+.assistant-feedback button {
+  appearance: none;
+  border: 0;
+}
+
+.assistant-trigger {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.8rem;
+  padding: 0.9rem 1.15rem;
+  border: 1px solid var(--white-08);
+  border-radius: 999px;
+  background:
+    linear-gradient(180deg, var(--surface-overlay-98), var(--surface-overlay-94)),
+    var(--black-38);
+  box-shadow:
+    0 1rem 2.5rem var(--black-32),
+    0 0 0 1px var(--accent-08),
+    0 0 2rem var(--accent-12);
+  color: var(--text);
+  cursor: pointer;
+}
+
+.assistant-trigger-badge {
+  width: 2rem;
+  height: 2rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: radial-gradient(circle at 50% 50%, var(--green-bright), var(--green-soft));
+  color: #041008;
+  font-family: "Avenir Next Condensed", "Arial Black", sans-serif;
+  font-size: 0.82rem;
+  font-weight: 900;
+}
+
+.assistant-trigger-label {
+  font-size: 0.95rem;
+  font-weight: 700;
+  letter-spacing: 0.01em;
+}
+
+.assistant-panel {
+  width: min(26rem, calc(100vw - 2rem));
+  max-height: min(44rem, calc(100vh - 7rem));
+  display: grid;
+  grid-template-rows: auto auto 1fr auto;
+  overflow: hidden;
+  border: 1px solid var(--white-08);
+  border-radius: 1.5rem;
+  background:
+    linear-gradient(180deg, rgba(8, 19, 11, 0.98), rgba(5, 10, 7, 0.98)),
+    var(--black-40);
+  box-shadow:
+    0 1.5rem 4rem var(--black-45),
+    0 0 0 1px var(--accent-08),
+    0 0 2.5rem var(--accent-12);
+  backdrop-filter: blur(18px);
+}
+
+.assistant-panel-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 1rem 1rem 0.85rem;
+  border-bottom: 1px solid var(--white-06);
+}
+
+.assistant-panel-header strong {
+  display: block;
+  margin-bottom: 0.3rem;
+  font-family: "Avenir Next Condensed", "Arial Black", sans-serif;
+  font-size: 1.15rem;
+  text-transform: uppercase;
+}
+
+.assistant-panel-header p,
+.assistant-status,
+.assistant-message-body p,
+.assistant-sources li,
+.assistant-feedback-sent {
+  margin: 0;
+  color: var(--text-76);
+}
+
+.assistant-panel-header p,
+.assistant-status,
+.assistant-sources li,
+.assistant-feedback-sent {
+  font-size: 0.9rem;
+  line-height: 1.5;
+}
+
+.assistant-close {
+  padding: 0.55rem 0.8rem;
+  border-radius: 999px;
+  background: var(--surface-hover);
+  color: var(--text);
+  cursor: pointer;
+}
+
+.assistant-meta {
+  padding: 0.85rem 1rem 0;
+}
+
+.assistant-starters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.assistant-starter {
+  padding: 0.55rem 0.8rem;
+  border-radius: 999px;
+  background: rgba(19, 44, 24, 0.68);
+  color: var(--text);
+  cursor: pointer;
+}
+
+.assistant-messages {
+  min-height: 14rem;
+  overflow: auto;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+}
+
+.assistant-message {
+  display: flex;
+}
+
+.assistant-message-user {
+  justify-content: flex-end;
+}
+
+.assistant-message-assistant {
+  justify-content: flex-start;
+}
+
+.assistant-message-body {
+  max-width: 92%;
+  padding: 0.85rem 0.95rem;
+  border: 1px solid var(--white-06);
+  border-radius: 1.1rem;
+  background: rgba(9, 18, 12, 0.82);
+}
+
+.assistant-message-user .assistant-message-body {
+  background: rgba(18, 68, 28, 0.82);
+}
+
+.assistant-message-body p {
+  font-size: 0.95rem;
+  line-height: 1.65;
+}
+
+.assistant-sources {
+  margin-top: 0.75rem;
+}
+
+.assistant-sources summary {
+  cursor: pointer;
+  color: var(--green-bright);
+  font-size: 0.88rem;
+}
+
+.assistant-sources ul {
+  margin: 0.55rem 0 0;
+  padding-left: 1rem;
+}
+
+.assistant-sources li {
+  display: flex;
+  flex-direction: column;
+  gap: 0.12rem;
+}
+
+.assistant-sources strong {
+  color: var(--text);
+  font-size: 0.9rem;
+}
+
+.assistant-feedback,
+.assistant-feedback-reasons {
+  margin-top: 0.75rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+}
+
+.assistant-feedback button {
+  padding: 0.42rem 0.7rem;
+  border-radius: 999px;
+  background: rgba(20, 39, 24, 0.88);
+  color: var(--text-84);
+  cursor: pointer;
+}
+
+.assistant-feedback-sent {
+  margin-top: 0.7rem;
+}
+
+.assistant-form {
+  display: grid;
+  gap: 0.7rem;
+  padding: 0.95rem 1rem 1rem;
+  border-top: 1px solid var(--white-06);
+  background: rgba(4, 9, 6, 0.82);
+}
+
+.assistant-label {
+  font-size: 0.88rem;
+  color: var(--text-64);
+}
+
+.assistant-form textarea {
+  width: 100%;
+  resize: none;
+  padding: 0.9rem 0.95rem;
+  border: 1px solid var(--white-08);
+  border-radius: 1rem;
+  background: rgba(7, 14, 9, 0.92);
+  color: var(--text);
+  font: inherit;
+  line-height: 1.6;
+}
+
+.assistant-form textarea:focus-visible,
+.assistant-trigger:focus-visible,
+.assistant-close:focus-visible,
+.assistant-submit:focus-visible,
+.assistant-starter:focus-visible,
+.assistant-feedback button:focus-visible {
+  outline: 2px solid var(--accent-92);
+  outline-offset: 3px;
+}
+
+.assistant-form-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.assistant-submit {
+  min-width: 5.5rem;
+  padding: 0.75rem 1rem;
+  border-radius: 999px;
+  background: linear-gradient(180deg, var(--green-bright), var(--green));
+  color: #041008;
+  cursor: pointer;
+  font-family: "Avenir Next Condensed", "Arial Black", sans-serif;
+  font-size: 0.98rem;
+}
+
+.assistant-submit:disabled,
+.assistant-form textarea:disabled {
+  opacity: 0.72;
+  cursor: wait;
+}
+
+@media (max-width: 767px) {
+  .assistant-shell {
+    right: 1rem;
+    left: 1rem;
+    bottom: 1rem;
+    align-items: stretch;
+  }
+
+  .assistant-trigger {
+    align-self: flex-end;
+  }
+
+  .assistant-panel {
+    width: 100%;
+    max-height: min(40rem, calc(100vh - 6rem));
+  }
+
+  .assistant-form-footer {
+    flex-direction: column;
+    align-items: stretch;
+  }
+}

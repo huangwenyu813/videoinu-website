@@ -1,0 +1,122 @@
+[
+  {
+    "id": "kb_what_is_videoinu",
+    "title": "What Is Videoinu 2.0",
+    "path": "knowledge/help/what-is-videoinu.md",
+    "type": "help",
+    "status": "published",
+    "owner": "product-team",
+    "lastUpdated": "2026-05-16",
+    "version": "1.0.0"
+  },
+  {
+    "id": "kb_workspace_overview",
+    "title": "Workspace Overview",
+    "path": "knowledge/help/workspace-overview.md",
+    "type": "help",
+    "status": "published",
+    "owner": "product-team",
+    "lastUpdated": "2026-05-16",
+    "version": "1.0.0"
+  },
+  {
+    "id": "kb_basic_workflow",
+    "title": "Basic Workflow",
+    "path": "knowledge/help/basic-workflow.md",
+    "type": "help",
+    "status": "published",
+    "owner": "product-team",
+    "lastUpdated": "2026-05-16",
+    "version": "1.0.0"
+  },
+  {
+    "id": "kb_model_selection",
+    "title": "Model Selection Guide",
+    "path": "knowledge/help/model-selection.md",
+    "type": "help",
+    "status": "published",
+    "owner": "product-team",
+    "lastUpdated": "2026-05-16",
+    "version": "1.0.0"
+  },
+  {
+    "id": "kb_image_to_video",
+    "title": "Image-to-Video",
+    "path": "knowledge/help/image-to-video.md",
+    "type": "help",
+    "status": "published",
+    "owner": "product-team",
+    "lastUpdated": "2026-05-16",
+    "version": "1.0.0"
+  },
+  {
+    "id": "kb_text_to_video",
+    "title": "Text-to-Video",
+    "path": "knowledge/help/text-to-video.md",
+    "type": "help",
+    "status": "published",
+    "owner": "product-team",
+    "lastUpdated": "2026-05-16",
+    "version": "1.0.0"
+  },
+  {
+    "id": "kb_export_settings",
+    "title": "Export Settings",
+    "path": "knowledge/help/export-settings.md",
+    "type": "help",
+    "status": "published",
+    "owner": "product-team",
+    "lastUpdated": "2026-05-16",
+    "version": "1.0.0"
+  },
+  {
+    "id": "kb_create_first_video",
+    "title": "Create Your First Video",
+    "path": "knowledge/help/create-first-video.md",
+    "type": "help",
+    "status": "published",
+    "owner": "product-team",
+    "lastUpdated": "2026-05-16",
+    "version": "1.0.0"
+  },
+  {
+    "id": "kb_generation_failed",
+    "title": "Generation Failed",
+    "path": "knowledge/help/generation-failed.md",
+    "type": "help",
+    "status": "published",
+    "owner": "product-team",
+    "lastUpdated": "2026-05-16",
+    "version": "1.0.0"
+  },
+  {
+    "id": "kb_quality_optimization",
+    "title": "Quality Optimization",
+    "path": "knowledge/help/quality-optimization.md",
+    "type": "help",
+    "status": "published",
+    "owner": "product-team",
+    "lastUpdated": "2026-05-16",
+    "version": "1.0.0"
+  },
+  {
+    "id": "kb_short_video_workflow",
+    "title": "Short Video Workflow",
+    "path": "knowledge/workflows/short-video-workflow.md",
+    "type": "workflow",
+    "status": "published",
+    "owner": "product-team",
+    "lastUpdated": "2026-05-16",
+    "version": "1.0.0"
+  },
+  {
+    "id": "kb_capability_boundaries",
+    "title": "Capability Boundaries",
+    "path": "knowledge/policy/capability-boundaries.md",
+    "type": "policy",
+    "status": "published",
+    "owner": "product-team",
+    "lastUpdated": "2026-05-16",
+    "version": "1.0.0"
+  }
+]
